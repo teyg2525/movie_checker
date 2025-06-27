@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Review'**
   String get review;
 
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
   /// No description provided for @status.
   ///
   /// In en, this message translates to:

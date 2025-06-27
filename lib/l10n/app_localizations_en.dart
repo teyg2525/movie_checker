@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get review => 'Review';
 
   @override
+  String get settings => 'Settings';
+
+  @override
   String get status => 'Status';
 
   @override

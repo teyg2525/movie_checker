@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_checker/components/svg_image_button.dart';
 import 'package:movie_checker/extensions/context_extension.dart';
+import 'package:movie_checker/gen/assets.gen.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,20 +16,22 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Movies', style: textStyles.roboto18MediumMain),
+        leading: SvgImageButton(
+          onPressed: () => context.router.back(),
+          asset: Assets.icons.close,
+        ),
+        title: Text(
+          localization.settings,
+          style: textStyles.roboto18MediumMain,
+        ),
         centerTitle: false,
         backgroundColor: scheme.onCtaColor,
         elevation: 0,
       ),
       body: SafeArea(
-        child: ListView.separated(
-          itemCount: 10,
+        child: Padding(
           padding: const EdgeInsets.all(20),
-          itemBuilder: (context, index) {
-            return Container(child: Text('hui' + index.toString()));
-          },
-          separatorBuilder: (context, index) =>
-              Divider(color: scheme.lineColor),
+          child: Column(children: []),
         ),
       ),
     );

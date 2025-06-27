@@ -7,6 +7,9 @@ import 'package:movie_checker/config/app_router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(initial: true, page: HomeRoute.page),
+    AutoRoute(initial: true, page: InitialRoute.page),
+    AutoRoute(page: HomeRoute.page),
+    AutoRoute(page: SettingsRoute.page),
+    AutoRoute(page: AddMovieRoute.page),
   ];
 }

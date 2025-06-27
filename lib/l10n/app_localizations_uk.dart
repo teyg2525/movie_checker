@@ -27,6 +27,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get review => 'Відгук';
 
   @override
+  String get settings => 'Налаштування';
+
+  @override
   String get status => 'Статус';
 
   @override
