@@ -10,6 +10,9 @@
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/add.svg
+  String get add => 'assets/icons/add.svg';
+
   /// File path: assets/icons/back.svg
   String get back => 'assets/icons/back.svg';
 
@@ -26,7 +29,7 @@ class $AssetsIconsGen {
   String get settings => 'assets/icons/settings.svg';
 
   /// List of all assets
-  List<String> get values => [back, close, darkMode, lang, settings];
+  List<String> get values => [add, back, close, darkMode, lang, settings];
 }
 
 class Assets {
