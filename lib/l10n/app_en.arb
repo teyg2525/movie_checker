@@ -1,11 +1,15 @@
 {
+  "add": "Add",
   "back": "Back",
   "darkMode": "Dark mode",
+  "empty": "Empty",
   "language": "Language",
   "movies": "Movies",
+  "noMoviesMessage": "No movies so far. Try add some.",
   "planned": "Planned",
   "review": "Review",
   "settings": "Settings",
   "status": "Status",
-  "title": "Title"
+  "title": "Title",
+  "watched": "Watched"
 }

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:movie_checker/components/loading_widget.dart';
 import 'package:movie_checker/config/app_router.gr.dart';
 import 'package:movie_checker/providers/app_config/app_config_provider.dart';
@@ -16,7 +17,7 @@ class InitialScreen extends StatefulWidget {
 class _InitialScreenState extends State<InitialScreen> {
   @override
   void initState() {
-    _init();
+    SchedulerBinding.instance.addPostFrameCallback((_) => _init());
     super.initState();
   }
 

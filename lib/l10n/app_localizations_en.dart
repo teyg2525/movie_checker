@@ -9,16 +9,25 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get add => 'Add';
+
+  @override
   String get back => 'Back';
 
   @override
   String get darkMode => 'Dark mode';
 
   @override
+  String get empty => 'Empty';
+
+  @override
   String get language => 'Language';
 
   @override
   String get movies => 'Movies';
+
+  @override
+  String get noMoviesMessage => 'No movies so far. Try add some.';
 
   @override
   String get planned => 'Planned';
@@ -34,4 +43,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get title => 'Title';
+
+  @override
+  String get watched => 'Watched';
 }

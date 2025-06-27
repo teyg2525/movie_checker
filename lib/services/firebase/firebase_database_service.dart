@@ -15,6 +15,8 @@ class FirebaseDatabaseService {
 
   final PreferencesService _preferencesService;
 
+  final Completer<FirebaseApp> _appInitializationCompleter;
+
   late StreamSubscription _moviesUpdatedSubscription;
   final StreamController<List<MovieModel>> _moviesUpdatedController;
 
@@ -23,7 +25,12 @@ class FirebaseDatabaseService {
       _databaseInstance ??= await _getDB();
 
   FirebaseDatabaseService(this._preferencesService)
-    : _moviesUpdatedController = StreamController.broadcast() {
+    : _moviesUpdatedController = StreamController.broadcast(),
+      _appInitializationCompleter = Completer() {
+    Firebase.initializeApp(
+      name: _appName,
+    ).then((app) => _appInitializationCompleter.complete(app));
+
     // _database.then((db) {
     //   _moviesUpdatedSubscription = db.ref(_moviesKey).onValue.listen((event) {
     //     if (event.snapshot.exists && event.snapshot.value != null) {
@@ -84,7 +91,7 @@ class FirebaseDatabaseService {
   }
 
   Future<FirebaseDatabase> _getDB() async {
-    final app = Firebase.app(_appName);
+    final app = await _appInitializationCompleter.future;
     final url = await _preferencesService.getFirebaseDBUrl();
     final db = FirebaseDatabase.instanceFor(app: app, databaseURL: url);
 

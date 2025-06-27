@@ -98,6 +98,12 @@ abstract class AppLocalizations {
     Locale('uk'),
   ];
 
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
   /// No description provided for @back.
   ///
   /// In en, this message translates to:
@@ -110,6 +116,12 @@ abstract class AppLocalizations {
   /// **'Dark mode'**
   String get darkMode;
 
+  /// No description provided for @empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty'**
+  String get empty;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
@@ -121,6 +133,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Movies'**
   String get movies;
+
+  /// No description provided for @noMoviesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'No movies so far. Try add some.'**
+  String get noMoviesMessage;
 
   /// No description provided for @planned.
   ///
@@ -151,6 +169,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Title'**
   String get title;
+
+  /// No description provided for @watched.
+  ///
+  /// In en, this message translates to:
+  /// **'Watched'**
+  String get watched;
 }
 
 class _AppLocalizationsDelegate

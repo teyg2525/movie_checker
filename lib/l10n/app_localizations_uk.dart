@@ -9,16 +9,25 @@ class AppLocalizationsUk extends AppLocalizations {
   AppLocalizationsUk([String locale = 'uk']) : super(locale);
 
   @override
+  String get add => 'Додати';
+
+  @override
   String get back => 'Назад';
 
   @override
   String get darkMode => 'Темний режим';
 
   @override
+  String get empty => 'Пусто';
+
+  @override
   String get language => 'Мова';
 
   @override
   String get movies => 'Фільми';
+
+  @override
+  String get noMoviesMessage => 'Наразі немає фільмів. Спробуйте додати.';
 
   @override
   String get planned => 'В планах';
@@ -34,4 +43,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get title => 'Назва';
+
+  @override
+  String get watched => 'Переглянуто';
 }

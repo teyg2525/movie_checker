@@ -4,14 +4,18 @@ part 'movie_model.g.dart';
 
 @JsonSerializable()
 class MovieModel {
-  MovieModel({required this.id, required this.name, required this.review});
+  MovieModel({
+    required this.title,
+    required this.review,
+    required this.watched,
+  });
 
-  @JsonKey(defaultValue: 0)
-  final int id;
   @JsonKey(defaultValue: '')
-  final String name;
+  final String title;
   @JsonKey(defaultValue: '')
   final String review;
+  @JsonKey(defaultValue: false)
+  final bool watched;
 
   factory MovieModel.fromJson(Map<String, dynamic> json) =>
       _$MovieModelFromJson(json);
