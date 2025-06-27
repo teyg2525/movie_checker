@@ -16,9 +16,12 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: SvgImageButton(
-          onPressed: () => context.router.back(),
-          asset: Assets.icons.close,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: SvgImageButton(
+            onPressed: () => context.router.back(),
+            asset: Assets.icons.close,
+          ),
         ),
         title: Text(
           localization.settings,

@@ -34,7 +34,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i500.AppConfigProvider>(
       () => _i500.AppConfigProvider(gh<_i290.PreferencesService>()),
     );
-    gh.lazySingleton<_i340.FirebaseDatabaseService>(
+    gh.singleton<_i340.FirebaseDatabaseService>(
       () => _i340.FirebaseDatabaseService(gh<_i290.PreferencesService>()),
     );
     gh.factory<_i673.AddMovieProvider>(

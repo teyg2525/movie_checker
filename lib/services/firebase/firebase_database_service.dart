@@ -8,7 +8,7 @@ import 'package:movie_checker/models/movie_model.dart';
 import 'package:movie_checker/services/preferences/preferences_service.dart';
 import 'package:result_dart/result_dart.dart';
 
-@LazySingleton()
+@Singleton()
 class FirebaseDatabaseService {
   static const _appName = 'movie-checker';
   static const _moviesKey = 'movies';
@@ -27,19 +27,19 @@ class FirebaseDatabaseService {
   FirebaseDatabaseService(this._preferencesService)
     : _moviesUpdatedController = StreamController.broadcast(),
       _appInitializationCompleter = Completer() {
-    Firebase.initializeApp(
-      name: _appName,
-    ).then((app) => _appInitializationCompleter.complete(app));
+    Firebase.initializeApp().then((app) {
+      _appInitializationCompleter.complete(app);
+    });
 
-    // _database.then((db) {
-    //   _moviesUpdatedSubscription = db.ref(_moviesKey).onValue.listen((event) {
-    //     if (event.snapshot.exists && event.snapshot.value != null) {
-    //       final movies = _parseMoviesFromSnapshot(event.snapshot);
+    _database.then((db) {
+      _moviesUpdatedSubscription = db.ref(_moviesKey).onValue.listen((event) {
+        if (event.snapshot.exists && event.snapshot.value != null) {
+          final movies = _parseMoviesFromSnapshot(event.snapshot);
 
-    //       _moviesUpdatedController.add(movies);
-    //     }
-    //   });
-    // });
+          _moviesUpdatedController.add(movies);
+        }
+      });
+    });
   }
 
   Stream<List<MovieModel>> get moviesUpdatedStream =>
@@ -82,10 +82,11 @@ class FirebaseDatabaseService {
   }
 
   List<MovieModel> _parseMoviesFromSnapshot(DataSnapshot snapshot) {
-    final json = jsonDecode(snapshot.value as dynamic);
-    final movies = (json as List)
-        .map((json) => MovieModel.fromJson(json))
-        .toList();
+    final map = snapshot.value as Map;
+    final movies = map.values.map((body) {
+      final json = jsonDecode(body);
+      return MovieModel.fromJson(json);
+    }).toList();
 
     return movies;
   }

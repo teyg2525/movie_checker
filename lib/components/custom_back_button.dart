@@ -20,6 +20,8 @@ class CustomBackButton extends StatelessWidget {
         children: [
           SvgPicture.asset(
             Assets.icons.back,
+            width: 24,
+            height: 24,
             colorFilter: ColorFilter.mode(
               scheme.mainTextColor,
               BlendMode.srcIn,

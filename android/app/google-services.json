@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "995918677662",
+    "firebase_url": "https://movie-checker-3aa06-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "movie-checker-3aa06",
+    "storage_bucket": "movie-checker-3aa06.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995918677662:android:2634c35721f0c5ddf81d8f",
+        "android_client_info": {
+          "package_name": "com.moviechecker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWPDfLXRH5oSBNW_fdgpzmHYZBmbn-yWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

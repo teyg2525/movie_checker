@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:movie_checker/models/movie_model.dart';
@@ -8,7 +10,12 @@ import 'package:result_dart/result_dart.dart';
 class HomeProvider extends ChangeNotifier {
   final FirebaseDatabaseService _databaseService;
 
+  StreamSubscription<List<MovieModel>>? _moviesUpdatedSubscription;
+
   HomeProvider(this._databaseService) {
+    _moviesUpdatedSubscription = _databaseService.moviesUpdatedStream.listen(
+      _onMoviesUpdated,
+    );
     _init();
   }
 
@@ -30,5 +37,10 @@ class HomeProvider extends ChangeNotifier {
         .onFailure((error) {
           //TODO: implement error handling
         });
+  }
+
+  _onMoviesUpdated(List<MovieModel> movies) {
+    this.movies = movies;
+    notifyListeners();
   }
 }

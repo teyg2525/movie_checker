@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movie_checker/components/empty_state_widget.dart';
 import 'package:movie_checker/components/loading_widget.dart';
+import 'package:movie_checker/components/scroll_layout_expander.dart';
 import 'package:movie_checker/components/svg_image_button.dart';
 import 'package:movie_checker/components/watched_indicator.dart';
 import 'package:movie_checker/config/app_router.gr.dart';
@@ -46,11 +47,15 @@ class HomeScreen extends StatelessWidget {
 
           return SafeArea(
             child: provider.initialized
-                ? provider.movies.isEmpty
-                      ? EmptyStateWidget(localization.noMoviesMessage)
-                      : RefreshIndicator.adaptive(
-                          onRefresh: provider.refresh,
-                          child: ListView.separated(
+                ? RefreshIndicator.adaptive(
+                    onRefresh: provider.refresh,
+                    child: provider.movies.isEmpty
+                        ? ScrollLayoutExpander(
+                            child: EmptyStateWidget(
+                              localization.noMoviesMessage,
+                            ),
+                          )
+                        : ListView.separated(
                             itemCount: movies.length,
                             padding: const EdgeInsets.all(16),
                             itemBuilder: (context, index) {
@@ -77,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                               parent: AlwaysScrollableScrollPhysics(),
                             ),
                           ),
-                        )
+                  )
                 : LoadingWidget(),
           );
         },

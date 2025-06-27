@@ -32,6 +32,8 @@ class MovieScreen extends StatelessWidget {
         centerTitle: false,
         backgroundColor: scheme.onCtaColor,
         elevation: 0,
+        leadingWidth: 100,
+        actionsPadding: EdgeInsets.all(16),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
