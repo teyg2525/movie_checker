@@ -7,4 +7,28 @@ import 'app_localizations.dart';
 /// The translations for Ukrainian (`uk`).
 class AppLocalizationsUk extends AppLocalizations {
   AppLocalizationsUk([String locale = 'uk']) : super(locale);
+
+  @override
+  String get back => 'Назад';
+
+  @override
+  String get darkMode => 'Темний режим';
+
+  @override
+  String get language => 'Мова';
+
+  @override
+  String get movies => 'Фільми';
+
+  @override
+  String get planned => 'В планах';
+
+  @override
+  String get review => 'Відгук';
+
+  @override
+  String get status => 'Статус';
+
+  @override
+  String get title => 'Назва';
 }

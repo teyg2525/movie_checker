@@ -12,6 +12,8 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:movie_checker/config/app_router.dart' as _i661;
+import 'package:movie_checker/providers/app_config/app_config_provider.dart'
+    as _i500;
 import 'package:movie_checker/services/firebase/firebase_database_service.dart'
     as _i340;
 import 'package:movie_checker/services/preferences/preferences_service.dart'
@@ -26,6 +28,9 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.singleton<_i661.AppRouter>(() => _i661.AppRouter());
     gh.singleton<_i290.PreferencesService>(() => _i290.PreferencesService());
+    gh.lazySingleton<_i500.AppConfigProvider>(
+      () => _i500.AppConfigProvider(gh<_i290.PreferencesService>()),
+    );
     gh.lazySingleton<_i340.FirebaseDatabaseService>(
       () => _i340.FirebaseDatabaseService(gh<_i290.PreferencesService>()),
     );
